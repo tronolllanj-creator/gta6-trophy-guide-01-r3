@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTA VI Trophy Guide — Vice City Platinum</title>
+  <meta name="description" content="All 55 GTA VI PlayStation 5 trophies: guides, tracker and roadmap to the platinum.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>GTA VI Trophy Guide</h1>
+      <p class="subtitle">All 55 PlayStation 5 trophies — guide, tracker and roadmap to the platinum</p>
+    </div>
+    <p class="counts" id="progress">0 of 55 earned</p>
+  </header>
+
+  <nav class="toolbar" aria-label="Guide controls">
+    <input type="search" id="search" placeholder="Search trophies, guides…" aria-label="Search trophies">
+    <select id="kind" aria-label="Filter by kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="online">Online</option>
+    </select>
+    <select id="grade" aria-label="Filter by grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+    <label class="check"><input type="checkbox" id="hideEarned"> Hide earned</label>
+    <button id="spoilerBtn" type="button" aria-pressed="false">Show spoilers</button>
+    <button id="export" type="button">Export</button>
+    <label class="import-label" for="importFile">Import<input type="file" id="importFile" accept=".json" hidden></label>
+    <button id="roadmapBtn" type="button">Roadmap</button>
+    <button id="checklistBtn" type="button">Checklist</button>
+  </nav>
+
+  <main>
+    <div id="progressBar" role="progressbar" aria-label="Trophies earned"><div class="fill"></div></div>
+    <p id="gradeCounts" class="grade-counts"></p>
+    <section id="roadmapPanel" hidden></section>
+    <section id="list" aria-live="polite"></section>
+    <section id="detail" hidden></section>
+  </main>
+
+  <footer>Guides written in our own words, with a source cited per trophy. Not affiliated with Rockstar Games.</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

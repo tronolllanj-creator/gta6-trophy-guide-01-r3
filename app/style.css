@@ -1,0 +1,228 @@
+/* Vice City neon: deep navy, pink + cyan accents, 16px readable type. */
+:root {
+  --bg: #0d1026;
+  --panel: #151a33;
+  --panel-2: #1c2347;
+  --ink: #e9ebff;
+  --muted: #8a91b4;
+  --line: #28305c;
+  --pink: #ff5da2;
+  --cyan: #37c8d9;
+  --input-bg: #10152e;
+  --focus: #37c8d9;
+  --platinum: #dfe9ff;
+  --gold: #f0c040;
+  --silver: #c0c8d0;
+  --bronze: #b0724f;
+  --radius: 10px;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding: 20px 24px 12px;
+  background: linear-gradient(180deg, #141a3d, var(--bg));
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle { margin: 4px 0 0; color: var(--muted); }
+.counts { margin: 0; font-weight: 700; white-space: nowrap; }
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.toolbar input[type="search"],
+.toolbar select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.toolbar input[type="search"] { flex: 2 1 220px; }
+.toolbar select { flex: 1 1 130px; }
+
+.toolbar button,
+.import-label {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.toolbar button:hover,
+.import-label:hover { border-color: var(--cyan); }
+
+#spoilerBtn[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); color: #14081e; }
+#export { background: var(--pink); border-color: var(--pink); color: #14081e; font-weight: 700; }
+
+.check { display: inline-flex; align-items: center; gap: 6px; }
+
+main { max-width: 860px; margin: 0 auto; padding: 16px 24px 40px; }
+
+#progressBar {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--panel-2);
+}
+
+#progressBar .fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  transition: width 0.25s ease;
+}
+
+.grade-counts { margin: 8px 0 16px; color: var(--muted); font-size: 14px; }
+
+#list { display: flex; flex-direction: column; gap: 12px; }
+
+.trophy {
+  position: relative;
+  padding: 14px 16px 14px 20px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--bronze);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.trophy.grade-platinum { border-left-color: var(--platinum); }
+.trophy.grade-gold { border-left-color: var(--gold); }
+.trophy.grade-silver { border-left-color: var(--silver); }
+.trophy.grade-bronze { border-left-color: var(--bronze); }
+
+.trophy.is-earned { outline: 2px solid var(--cyan); outline-offset: -2px; }
+.trophy:focus-within { border-color: var(--cyan); }
+.trophy h3 { margin: 6px 0 4px; font-size: 1.1rem; }
+.trophy p { margin: 4px 0; }
+.trophy .guide { margin-top: 10px; }
+.trophy ol { margin: 8px 0; padding-left: 22px; }
+.trophy ol li { margin: 3px 0; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grade-platinum .badge, .badge.grade-platinum { background: var(--platinum); color: #141414; }
+.grade-gold .badge, .badge.grade-gold { background: var(--gold); color: #141414; }
+.grade-silver .badge, .badge.grade-silver { background: var(--silver); color: #141414; }
+.grade-bronze .badge, .badge.grade-bronze { background: var(--bronze); color: #fff; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+
+.chip {
+  display: inline-block;
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chip.missable { border-color: var(--pink); color: var(--pink); }
+.chip.earned { border-color: var(--cyan); color: var(--cyan); }
+
+.source { color: var(--muted); font-size: 14px; }
+.earned-wrap { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-weight: 600; cursor: pointer; }
+
+#detail {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+#detail h2 { margin-top: 0; }
+#detail .missable-note { color: var(--pink); }
+.detail-nav { display: flex; gap: 8px; margin: 16px 0; }
+.detail-nav button {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.detail-nav button:disabled { opacity: 0.4; cursor: default; }
+
+#roadmapPanel section {
+  margin-bottom: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+#roadmapPanel h3 { margin: 0 0 6px; }
+#roadmapPanel .stage-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+footer {
+  padding: 18px 24px 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .site-header, .toolbar, main { padding-left: 14px; padding-right: 14px; }
+  .site-header h1 { font-size: 1.25rem; }
+}
